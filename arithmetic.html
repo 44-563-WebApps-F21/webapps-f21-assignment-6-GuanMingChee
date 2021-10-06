@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+ 
+<body>
+Guan Ming Chee computes
+
+<title>Let the count goes on...</title>
+<br>
+<h2>Looping computation</h2>
+<br>
+<form>
+    <label for="base">Enter a base</label>
+    <input type ="number" id="base" name="base" value=10> <br>
+
+    <label for="exp">Enter an exponent</label>
+    <input type ="number" id="exp" name="exp" value=2> <br>
+
+    <input type="button" onclick="powers()" value="Compute">
+</form>
+
+
+<p id="res"></p>
+
+<script> 
+
+function powers(){
+    console.log("Getting form values")
+    base_num = document.getElementById("base").value
+    exp_num = document.getElementById("exp").value
+    let result=""
+    let val=0
+    out = document.getElementById("res")
+    for(let i=1;i<=exp_num;i++){
+        val=base_num**i
+        result+=val
+        result+=" "
+    }
+    out.innerHTML = "Powers of "+base_num+" are: "+result+"(exponent was "+exp_num+") "
+}
+</script>
+
+</body>
+</html> 
