@@ -18,11 +18,26 @@ Guan Ming Chee computes
     <input type="button" onclick="powers()" value="Compute">
 </form>
 
-
 <p id="res"></p>
+<br>
+<h2>Radio button calculations</h2>
+<form>
+    <input type="radio" id="plus" name="calc" value="plus" onclick="processRadio()">
+    <label for="plus">+</label></br>
+  
+    <input type="radio" id="minus" name="calc" value="minus" onclick="processRadio()">
+    <label for="minus">-</label></br>
+  
+    <input type="radio" id="times" name="calc" value="times" onclick="processRadio()">
+    <label for="times">*</label></br>
+
+    <input type="radio" id="divide" name="calc" value="divide" onclick="processRadio()">
+    <label for="divide">/</label></br>
+
+</form>
+<p id="dis"></p>
 
 <script> 
-
 function powers(){
     console.log("Getting form values")
     base_num = document.getElementById("base").value
@@ -36,6 +51,31 @@ function powers(){
         result+=" "
     }
     out.innerHTML = "Powers of "+base_num+" are: "+result+"(exponent was "+exp_num+") "
+}
+
+function processRadio() {
+    console.log("Getting input")
+    plusOpt = document.getElementById("plus").checked
+    minusOpt = document.getElementById("minus").checked
+    timesOpt = document.getElementById("times").checked
+    divideOpt = document.getElementById("divide").checked
+    base_num = document.getElementById("base").value
+    exp_num = document.getElementById("exp").value
+    out = document.getElementById("dis")
+    let val=0
+    if(plusOpt){
+        val=parseInt(base_num)+parseInt(exp_num)
+        out.innerHTML = "Result: "+base_num+" + "+exp_num+" = "+val
+    } else if (minusOpt){
+        val=base_num-exp_num
+        out.innerHTML = "Result: "+base_num+" - "+exp_num+" = "+val
+    }else if(timesOpt){
+        val=base_num*exp_num
+        out.innerHTML = "Result: "+base_num+" * "+exp_num+" = "+val
+    }else if(divideOpt){
+        val=base_num/exp_num
+        out.innerHTML = "Result: "+base_num+" / "+exp_num+" = "+val
+    }
 }
 </script>
 

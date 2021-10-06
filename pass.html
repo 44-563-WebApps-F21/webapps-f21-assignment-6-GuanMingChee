@@ -32,19 +32,16 @@
 <script> 
 let correct=0
 let wrong=0
-
 function processPhrase(){
     console.log("Getting form values")
     secret_phase = document.getElementById("secret_phase").value
     check_phase = document.getElementById("check_phase").value
     //confirmed = confirm("Are these the values? "+secret_phase+" and "+check_phase)
-    
     out = document.getElementById("result")
     if(secret_phase==check_phase){
         correct+=1
         alert("Access allowed")
         out.innerHTML = "Total correct counts= "+correct
-        
     } else {
         wrong+=1
         alert("Access denied")
