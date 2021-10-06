@@ -23,9 +23,16 @@
 
 <p id="result">This text will be replaced </p>
 
+<br>
+<h2>Change an image</h2>
+<div class="container">
+    <img src="eagle.jpg" width="200" height="200" alt="eagle" onclick="newImage()" value="New Image" id="animal">
+</div>
+
 <script> 
 let correct=0
 let wrong=0
+
 function processPhrase(){
     console.log("Getting form values")
     secret_phase = document.getElementById("secret_phase").value
@@ -42,6 +49,23 @@ function processPhrase(){
         wrong+=1
         alert("Access denied")
         out.innerHTML = "Total wrong counts= "+wrong
+    }
+}
+let usingImage=1
+function newImage(){
+    switch(usingImage){
+        case 1:
+            document.getElementById('animal').src ="hammerhead-shark.jpg"
+            usingImage+=1
+            break
+        case 2:
+            document.getElementById('animal').src ="markhor.jpg"
+            usingImage+=1
+            break
+        case 3:
+            document.getElementById('animal').src ="eagle.jpg"
+            usingImage=1
+            break
     }
 }
 </script>
