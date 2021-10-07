@@ -23,8 +23,20 @@
 
     <input type="button" onclick="orderCar()" value="Order a car">
 </form>
-
+<br>
 <p id="r"></p>
+<br>
+<form>
+    <label for="c_property">Enter a property</label>
+    <input type ="text" id="prop" name="prop" value="color" autofocus> <br>
+
+    <label for="c_value">Enter a value</label>
+    <input type ="text" id="val" name="val" autofocus> <br>
+
+    <input type="button" onclick="updateCar()" value="Update the car">
+</form>
+<br>
+<p id="res"></p>
 
 <script> 
 let my_car={}
@@ -53,8 +65,16 @@ function orderCar(){
     else if(gps.checked==false){
         my_car.gps=false
     }
-    //out.innerHTML = "yo"
     out.innerHTML = JSON.stringify(my_car)
+}
+
+function updateCar(){
+    my_car_property=document.getElementById("prop").value
+    my_car_value=document.getElementById("val").value
+    my_car[my_car_property]=my_car_value
+    out = document.getElementById("res")
+    out.innerHTML=JSON.stringify(my_car)
+
 }
 </script>
 
