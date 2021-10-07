@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+ <head>
+     Guan Ming Chee orders a car
+     <title>Vroom Vroom Car</title>
+ </head>
+<body>
+
+<h2>Check boxes</h2>
+
+<form>
+    <input type="checkbox" id="electric" name="car"   
+      value="electric">
+    <label for="electric">electric</label></br>
+  
+    <input type="checkbox" id="ac" name="car" 
+       value="ac">
+    <label for="ac">ac</label></br>
+  
+    <input type="checkbox" id="gps" name="car"   
+       value="gps">
+    <label for="gps">gps</label></br>
+
+    <input type="button" onclick="orderCar()" value="Order a car">
+</form>
+
+<p id="r"></p>
+
+<script> 
+let my_car={}
+function orderCar(){
+    console.log("Getting input")
+    my_car={}
+    electric = document.getElementById("electric").checked
+    ac = document.getElementById("ac").checked
+    gps = document.getElementById("gps").checked
+    out = document.getElementById("r")
+    if(electric){
+        my_car.electric=true
+    }
+    else if(electric.checked==false){
+        my_car.electric=false
+    }
+    if (ac){
+        my_car.ac=true
+    }
+    else if(ac.checked==false){
+        my_car.ac=false
+    }
+    if(gps){
+        my_car.gps=true
+    }
+    else if(gps.checked==false){
+        my_car.gps=false
+    }
+    //out.innerHTML = "yo"
+    out.innerHTML = JSON.stringify(my_car)
+}
+</script>
+
+</body>
+</html> 
